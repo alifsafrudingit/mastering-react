@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "parts/Header";
 import Hero from "parts/HomePage/Hero";
-import BrowseTheRoom from "parts/HomePage/BrowseTheRoom";
+import BrowseRoom from "parts/HomePage/BrowseRoom";
 import JustArrived from "parts/HomePage/JustArrived";
 import Clients from "parts/Clients";
 import Sitemap from "parts/Sitemap";
@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <Header theme="white" position="absolute" />
       <Hero />
-      <BrowseTheRoom />
+      <BrowseRoom />
       <JustArrived />
       <Clients />
       <Sitemap />
