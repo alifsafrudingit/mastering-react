@@ -8,8 +8,6 @@ export default function ProductDetails({ data }) {
 
   const { dispatch } = useGlobalContext();
 
-  console.log(dispatch);
-
   return (
     <section className="container mx-auto">
       <div className="flex flex-wrap my-4 md:my-12">

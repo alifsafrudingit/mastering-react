@@ -5,7 +5,7 @@ import Breadcrumb from "components/Breadcrumb";
 
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
-import ShippingCart from "parts/Cart/ShippingCart";
+import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
 
 export default function Details() {
@@ -19,10 +19,10 @@ export default function Details() {
         ]}
       />
 
-      <section class="md:py-16">
-        <div class="container mx-auto px-4">
-          <div class="flex -mx-4 flex-wrap">
-            <ShippingCart />
+      <section className="md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex -mx-4 flex-wrap">
+            <ShoppingCart />
             <ShippingDetails />
           </div>
         </div>
