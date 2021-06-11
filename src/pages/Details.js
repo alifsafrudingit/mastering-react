@@ -10,6 +10,8 @@ import Suggestion from "parts/Details/Suggestion";
 // import JustArrived from "parts/HomePage/JustArrived";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
+import Document from "parts/Document";
+import PageErrorMessage from "parts/PageErrorMessage";
 
 import useAsync from "helpers/hooks/useAsync";
 import fetch from "helpers/fetch";
@@ -103,14 +105,14 @@ function LoadingSuggestion() {
 
 export default function Details() {
   const { idp } = useParams();
-  const { data, run, isLoading } = useAsync();
+  const { data, error, run, isLoading, isError } = useAsync();
 
   useEffect(() => {
     run(fetch({ url: `/api/products/${idp}` }));
   }, [run, idp]);
 
   return (
-    <>
+    <Document>
       <Header theme="black" />
       <Breadcrumb
         list={[
@@ -119,14 +121,28 @@ export default function Details() {
           { url: "/categories/97983/products/1234", name: "Details" },
         ]}
       />
-      {isLoading ? <LoadingProductDetails /> : <ProductDetails data={data} />}
-      {isLoading ? (
-        <LoadingSuggestion />
+
+      {isError ? (
+        <PageErrorMessage
+          title="Product Not Found"
+          body={error.errors.message}
+        />
       ) : (
-        <Suggestion data={data?.relatedProducts || {}} />
+        <>
+          {isLoading ? (
+            <LoadingProductDetails />
+          ) : (
+            <ProductDetails data={data} />
+          )}
+          {isLoading ? (
+            <LoadingSuggestion />
+          ) : (
+            <Suggestion data={data?.relatedProducts || {}} />
+          )}
+        </>
       )}
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }

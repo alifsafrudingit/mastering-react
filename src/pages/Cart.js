@@ -5,12 +5,13 @@ import Breadcrumb from "components/Breadcrumb";
 
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
+import Document from "parts/Document";
 import ShoppingCart from "parts/Cart/ShoppingCart";
 import ShippingDetails from "parts/Cart/ShippingDetails";
 
-export default function Details() {
+export default function Cart() {
   return (
-    <>
+    <Document>
       <Header theme="black" />
       <Breadcrumb
         list={[
@@ -30,6 +31,6 @@ export default function Details() {
 
       <Sitemap />
       <Footer />
-    </>
+    </Document>
   );
 }
